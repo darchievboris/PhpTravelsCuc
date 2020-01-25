@@ -42,9 +42,9 @@ public class AdminLoginFormPage {
     }
 
 
-    public static void main(String[] args) {
-        driver.get(ConfigReader.readProperty("urlAdmin"));
-        AdminLoginFormPage p = new AdminLoginFormPage();
-        p.loginAsAdmin();
-    }
+//    public static void main(String[] args) {
+//        driver.get(ConfigReader.readProperty("urlAdmin"));
+//        AdminLoginFormPage p = new AdminLoginFormPage();
+//        p.loginAsAdmin();
+//    }
 }

@@ -6,14 +6,16 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/resources/features/homePage.feature",
+        features = "src/test/resources/features/adminPage.feature",
         glue = "step_definitions",
         plugin = {
                 "pretty",
                 "html:target/cucumber-reports/cucumber-pretty",
                 "json:target/cucumber-reports/cucumberTestReports.json",
         },
-        tags = {"@homePage"}
+
+        tags = {"@adminPage"}
 )
-public class HomePage_Runner {
+public class AdminPage_Runner {
+
 }

@@ -16,26 +16,7 @@ public class AdminPage {
         adminLoginFormPage.loginAsAdmin();
     }
 
-    @FindBy(name = "email")
-    public WebElement email_Inp;
 
-    @FindBy(name = "password")
-    public WebElement password_Inp;
-
-    @FindBy(css = ".btn.btn-primary.btn-block.ladda-button.fadeIn.animated.btn-lg")
-    public WebElement login_Btn;
-
-    @FindBy(css = ".text-center.wow.fadeIn.animated")
-    public WebElement hiddenDiv;
-
-    public void setLoginAdmin() {
-    }
-
-    public void setPasswordAdmin() {
-    }
-
-    public void loginAsAdmin() {
-    }
     public String getTitle(){
         SeleniumUtils.sleep(2000);
         return driver.getTitle();
