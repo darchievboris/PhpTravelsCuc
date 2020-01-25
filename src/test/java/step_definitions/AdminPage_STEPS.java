@@ -3,6 +3,7 @@ package step_definitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import pages.AdminPage;
 import util.ConfigReader;
@@ -25,7 +26,6 @@ public class AdminPage_STEPS {
 
     @Then("Verifies title is Dashbord")
     public void verifies_title_is_Dashbord() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+        Assert.assertEquals("Dashbord",adminPage.getTitle());
     }
 }
