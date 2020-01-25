@@ -25,6 +25,7 @@ public class HomePage {
     @FindBy(xpath = "//a[text()='Login']")
     public WebElement logIn_Btn;
 
+
     public void rand(){
         logo.sendKeys();
     }
@@ -40,6 +41,10 @@ public class HomePage {
     public void clickSignUp(){
         clickMyAccountBtn();
         SeleniumUtils.click(signUp_Btn);
+    }
+    public void clickLogin(){
+        clickMyAccountBtn();
+        SeleniumUtils.click(logIn_Btn);
     }
 
 }

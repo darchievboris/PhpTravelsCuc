@@ -12,73 +12,86 @@ import java.util.List;
 public class SeleniumUtils {
     private static WebDriver driver = Driver.getDriver();
 
-    public static void sleep(long milliSeconds){
-        try{
+    public static void sleep(long milliSeconds) {
+        try {
             Thread.sleep(milliSeconds);
-        }catch (InterruptedException e){
+        } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
     }
 
-    public static void waitForClickability(WebElement element){
+    public static void waitForClickability(WebElement element) {
         WebDriverWait explicitWait = new WebDriverWait(driver, 10);
         explicitWait.until(ExpectedConditions.visibilityOf(element));
     }
-    public static void waitForVisibilityOfAll(List<WebElement> list){
+
+    public static void waitForVisibilityOfAll(List<WebElement> list) {
         WebDriverWait explicitWait = new WebDriverWait(driver, 10);
         explicitWait.until(ExpectedConditions.visibilityOfAllElements(list));
     }
 
-    public static void waitForVisibilityOfElement(WebElement element){
+    public static void waitForVisibilityOfElement(WebElement element) {
         WebDriverWait explicitWait = new WebDriverWait(driver, 10);
         explicitWait.until(ExpectedConditions.visibilityOf(element));
     }
 
-    public static void waitForPageToLoad(){
-        ExpectedCondition<Boolean> pageLoadCondition = driver -> ((JavascriptExecutor)driver).executeScript("return document.readyState").equals(("complete"));
+    public static void waitForPageToLoad() {
+        ExpectedCondition<Boolean> pageLoadCondition = driver -> ((JavascriptExecutor) driver).executeScript("return document.readyState").equals(("complete"));
         WebDriverWait wait = new WebDriverWait(driver, 20);
         wait.until(pageLoadCondition);
     }
 
-    public static void click(WebElement element){
+    public static void click(WebElement element) {
         waitForClickability(element);
         highlightElement(element);
         element.click();
     }
 
-    public static void sendKeys(WebElement element, String input){
+    public static void sendKeys(WebElement element, String input) {
         waitForVisibilityOfElement(element);
         highlightElement(element);
         element.sendKeys(input);
     }
 
-    public static String getText(WebElement element){
+    public static String getText(WebElement element) {
         waitForVisibilityOfElement(element);
         highlightElement(element);
         return element.getText();
     }
 
-    public static void moveIntoView(WebElement element){
+    public static void moveIntoView(WebElement element) {
+        waitForVisibilityOfElement(element);
+        hiddenElement(element);
         try {
-            ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);", element);
-        }catch (Exception e){
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+        } catch (Exception e) {
             e.printStackTrace();
         }
         highlightElement(element);
     }
 
-    public static void highlightElement(WebElement element){
-        JavascriptExecutor js = (JavascriptExecutor)driver;
+    public static void hiddenElement(WebElement element) {
+        waitForVisibilityOfElement(element);
+        highlightElement(element);
+        try {
+            ((JavascriptExecutor) driver).executeScript("arguments[0].setAttribute('style','display:none');", element);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void highlightElement(WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
         //moveElementIntoView(element);
-        for(int i = 0; i < 2; i++){
-            try{
+        for (int i = 0; i < 2; i++) {
+            try {
                 if (i == 0) {
                     js.executeScript("arguments[0].setAttribute('style', arguments[1]);", element, "color: black; border: 3px solid red; background: yellow");
-                }else{
+                } else {
                     sleep(500);
                     js.executeScript("arguments[0].setAttribute('style', arguments[1]);", element, "");
                 }
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
