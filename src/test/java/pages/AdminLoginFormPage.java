@@ -9,8 +9,9 @@ import util.Driver;
 import util.SeleniumUtils;
 
 public class AdminLoginFormPage {
-    private static WebDriver driver = Driver.getDriver();
-    public AdminLoginFormPage(){
+
+    public AdminLoginFormPage(WebDriver driver){
+
         PageFactory.initElements(driver,this);
     }
 

@@ -14,7 +14,8 @@ import org.junit.runner.RunWith;
                 "json:target/cucumber-reports/cucumberTestReports.json",
         },
 
-        tags = {"@adminPage"}
+        tags = {"@adminPage"},
+        dryRun = false
 )
 public class AdminPage_Runner {
 

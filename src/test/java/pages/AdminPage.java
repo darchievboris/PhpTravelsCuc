@@ -10,22 +10,19 @@ import util.SeleniumUtils;
 
 public class AdminPage {
     private static WebDriver driver = Driver.getDriver();
-    AdminLoginFormPage adminLoginFormPage;
+
     public AdminPage(){
         PageFactory.initElements(driver,this);
-        adminLoginFormPage = new AdminLoginFormPage();
-        adminLoginFormPage.loginAsAdmin();
     }
+    @FindBy(name = "email")
+    public WebElement email_Inp;
 
+    @FindBy(name = "password")
+    public WebElement password_Inp;
 
-    public String getTitle(){
-        SeleniumUtils.sleep(2000);
-        return driver.getTitle();
-    }
+    @FindBy(css = ".btn.btn-primary.btn-block.ladda-button.fadeIn.animated.btn-lg")
+    public WebElement login_Btn;
 
-//    public static void main(String[] args) {
-//        driver.get(ConfigReader.readProperty("urlAdmin"));
-//        AdminPage p = new AdminPage();
-//        System.out.println(p.getTitle());
-//    }
+    @FindBy(css = ".text-center.wow.fadeIn.animated")
+    public WebElement bottomDiv;
 }
