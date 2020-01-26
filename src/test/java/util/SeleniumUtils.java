@@ -70,6 +70,10 @@ public class SeleniumUtils {
         highlightElement(element);
     }
 
+    public static void scrollBy300() {
+            ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,300)");
+    }
+
     public static void hiddenElement(WebElement element) {
         waitForVisibilityOfElement(element);
         highlightElement(element);

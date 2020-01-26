@@ -1,5 +1,6 @@
 package pages;
 
+import io.cucumber.java.eo.Se;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -25,6 +26,8 @@ public class HomePage {
     @FindBy(xpath = "//a[text()='Login']")
     public WebElement logIn_Btn;
 
+    @FindBy(css =".featured-image-grid-item.with-highlight")
+    public WebElement featuredTours_Link;
 
     public void rand(){
         logo.sendKeys();
@@ -45,6 +48,10 @@ public class HomePage {
     public void clickLogin(){
         clickMyAccountBtn();
         SeleniumUtils.click(logIn_Btn);
+    }
+    public void navigateToTour(){
+        SeleniumUtils.moveIntoView(featuredTours_Link);
+        SeleniumUtils.click(featuredTours_Link);
     }
 
 }

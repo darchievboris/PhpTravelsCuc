@@ -16,7 +16,7 @@ public class AdminCouponPage_Impl {
     private static WebDriver driver = Driver.getDriver();
     AdminCouponPage adminCouponPage = new AdminCouponPage();
 
-    String testCode = "Test Boris " + DateUtils.currentDateTime();
+    String testCode = "Test Boris promo code";
 
     CouponPOJO currentCoupon = new CouponPOJO("25", "5", testCode, DateUtils.currentDatePlus(0), DateUtils.currentDatePlus(5));
 
