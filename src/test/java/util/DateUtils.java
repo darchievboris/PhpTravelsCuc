@@ -1,6 +1,7 @@
 package util;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -16,5 +17,11 @@ public class DateUtils {
         DateTimeFormatter date = DateTimeFormatter.ofPattern("HH:mm:ss dd/MM/yyy");
         LocalDateTime now = LocalDateTime.now();
         return date.format(now);
+    }
+
+    public static String currentDatePlus(int plusDays){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate date = LocalDate.now().plusDays(plusDays);
+        return formatter.format(date);
     }
 }

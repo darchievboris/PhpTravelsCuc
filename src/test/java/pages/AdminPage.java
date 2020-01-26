@@ -25,4 +25,7 @@ public class AdminPage {
 
     @FindBy(css = ".text-center.wow.fadeIn.animated")
     public WebElement bottomDiv;
+
+    @FindBy(xpath = "//a[contains(text(),'Coupons')]")
+    public WebElement coupons_Nav;
 }

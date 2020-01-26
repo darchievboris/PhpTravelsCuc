@@ -30,4 +30,9 @@ public class AdminPage_STEPS {
         Assert.assertEquals("Dashboard",driver.getTitle());
     }
 
+    @When("User navigate to Coupons page")
+    public void user_navigate_to_Coupons_page() {
+        adminPage.navigateToPage("Coupons");
+    }
+
 }

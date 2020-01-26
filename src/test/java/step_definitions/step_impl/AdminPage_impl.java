@@ -17,6 +17,14 @@ public class AdminPage_impl {
         SeleniumUtils.click(adminPage.login_Btn);
     }
 
+    public void navigateToPage(String pageName){
+        switch (pageName.toLowerCase()){
+            case "coupons":
+                SeleniumUtils.click(adminPage.coupons_Nav);
+                break;
+        }
+
+    }
 
 
 }
